@@ -5,3 +5,10 @@ services:
     - 8888:8080
     healthcheck:
       test: "curl -f http://localhost:8888/api/ || exit 1"
+      start_period: 300s
+    environment:
+      SKIP_SUPERUSER: "false"
+      # SUPERUSER_API_TOKEN: ""
+      SUPERUSER_EMAIL: "here@there.com"
+      SUPERUSER_NAME: "admin"
+      SUPERUSER_PASSWORD: "admin"
