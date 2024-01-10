@@ -4,9 +4,6 @@ services:
     ports:
     - 8888:8080
     healthcheck:
-      #test: "curl -f http://localhost:8888/api/ || exit 1"
-      #timeout: 10s
-      #interval: 30s
       start_period: 180s
     environment:
       SKIP_SUPERUSER: "false"
