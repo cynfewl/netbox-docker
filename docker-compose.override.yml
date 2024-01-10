@@ -4,11 +4,24 @@ services:
     ports:
     - 8888:8080
     healthcheck:
-      test: "curl -f http://localhost:8888/api/ || exit 1"
-      start_period: 300s
+      #test: "curl -f http://localhost:8888/api/ || exit 1"
+      #timeout: 10s
+      #interval: 30s
+      start_period: 180s
     environment:
       SKIP_SUPERUSER: "false"
       # SUPERUSER_API_TOKEN: ""
       SUPERUSER_EMAIL: "here@there.com"
       SUPERUSER_NAME: "admin"
       SUPERUSER_PASSWORD: "admin"
+    restart: unless-stopped
+  netbox-worker:
+    restart: unless-stopped
+  netbox-housekeeping:
+    restart: unless-stopped
+  postgres:
+    restart: unless-stopped
+  redis:
+    restart: unless-stopped
+  redis-cache:
+    restart: unless-stopped
