@@ -11,3 +11,14 @@ services:
       SUPERUSER_EMAIL: "here@there.com"
       SUPERUSER_NAME: "admin"
       SUPERUSER_PASSWORD: "admin"
+    restart: unless-stopped
+  netbox-worker:
+    restart: unless-stopped
+  netbox-housekeeping:
+    restart: unless-stopped
+  postgres:
+    restart: unless-stopped
+  redis:
+    restart: unless-stopped
+  redis-cache:
+    restart: unless-stopped
